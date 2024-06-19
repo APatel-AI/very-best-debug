@@ -5,15 +5,21 @@ class VenuesController < ApplicationController
     @venue = matching_venues.order(:created_at)
     render({ :template => "venue_templates/venue_list" })
 
-
   end
 
   def show
-    venue_id = params.fetch("venue_id")
+    venue_id = params.fetch("path_id")
     matching_venues = Venue.where({ :id => venue_id })
-    the_venue = matching_venues
+    @the_venue = matching_venues.first
 
-    render({ :template => "venue_templates/details" })
+    if @the_venue == nil
+      redirect_to("/venues", { :notice => "unable to fetch venue details." })
+    else
+      
+      render({ :template => "venue_templates/details" })
+
+    end
+
   end
 
   def create
