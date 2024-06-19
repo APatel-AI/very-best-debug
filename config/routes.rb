@@ -1,11 +1,13 @@
 Rails.application.routes.draw do
-
+# Users controller routes
   get("/", { :controller => "users", :action => "index" })
   get("/users", { :controller => "users", :action => "index" })
   get("/users/:username", { :controller => "users", :action => "show" })
-  post("/insert_user_record", { :controller => "venues", :action => "create" })
+  post("/insert_user_record", { :controller => "users", :action => "create" })
   post("/update_users/:user_id", { :controller => "users", :action => "update" })
 
+
+#Venues controller routes
   get("/venues", { :controller => "venues", :action => "index" })
   post("/insert_venue_record", { :controller => "venues", :action => "create" })
   get("/venues/:path_id", { :controller => "venues", :action => "show" })
