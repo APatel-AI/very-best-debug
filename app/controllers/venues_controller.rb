@@ -33,12 +33,16 @@ class VenuesController < ApplicationController
   end
   
   def update
-    the_id = params.fetch("venue_id")
+    the_id = params.fetch("the_id")
+    edit_address = params.fetch("query_address")
+    edit_name = params.fetch("query_name")
+    edit_neighborhood = params.fetch("query_neighborhood")
+    venue = Venue.where({ :id => the_id }).first
 
-    venue = Venue.where({ :id => the_id })
-    venue.address = params.fetch("query_address")
-    venue.name = params.fetch("Query_name")
-    venue.neighborhood = params.fetch("query_neighborhood")
+    venue.address = edit_address
+    venue.name = edit_name
+    venue.neighborhood = edit_neighborhood
+    
     venue.save
     
     redirect_to("/venues/#{venue.id}")
