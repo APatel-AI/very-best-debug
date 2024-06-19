@@ -1,4 +1,3 @@
-
 <h1>List of venues</h1>
 
 <form action="/insert_venue_record" method="post">
@@ -37,7 +36,7 @@
     <th></th>
   </tr>
 
-  <% @venue.each do |venue| %>
+  <% @venues.each do |venue| %>
   <tr>
     <td>
       <%= venue.id %>

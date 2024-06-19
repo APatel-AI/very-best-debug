@@ -1,5 +1,6 @@
 class CommentsController < ApplicationController
   def create
+    
     comment = Comment.new
     comment.author_id = params.fetch("query_author_id")
     comment.venue_id = params.fetch("query_venue_id")

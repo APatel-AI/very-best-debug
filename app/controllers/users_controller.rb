@@ -30,8 +30,7 @@ class UsersController < ApplicationController
     
     the_user.username = params.fetch("query_username")
     the_user.save
-
-    redirect_to("/users/#{the_user.username}", allow_other_host:true)
+    redirect_to("/users/#{the_user.username}")
   end
 
 end
